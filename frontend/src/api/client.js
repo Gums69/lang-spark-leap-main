@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api', // Ensure this matches your backend port
+    baseURL: import.meta.env.VITE_API_BASE_URL,
     headers: {
         'Content-Type': 'application/json'
     }
@@ -18,5 +18,4 @@ api.interceptors.request.use(
     },
     (error) => Promise.reject(error)
 );
-
 export default api;
