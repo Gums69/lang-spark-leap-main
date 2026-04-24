@@ -1,12 +1,11 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api', // Ensure this matches your backend port
+    baseURL: import.meta.env.VITE_API_BASE_URL || process.env.REACT_APP_API_BASE_URL,
     headers: {
         'Content-Type': 'application/json'
     }
 });
-
 // Add a request interceptor to include the token
 api.interceptors.request.use(
     (config) => {
